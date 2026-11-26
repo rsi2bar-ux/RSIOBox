@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: angel-sniper
+    runtime: node
+    plan: starter
+    buildCommand: echo "no deps"
+    startCommand: node server.js
+    healthCheckPath: /health
+    envVars:
+      - { key: NODE_VERSION, value: "22" }
+      - { key: ANGEL_API_KEY, sync: false }
+      - { key: ANGEL_CLIENT_CODE, sync: false }
+      - { key: ANGEL_PIN, sync: false }
+      - { key: ANGEL_TOTP_SECRET, sync: false }
+      - { key: VAPID_PUBLIC_KEY, sync: false }
+      - { key: VAPID_PRIVATE_KEY, sync: false }
+      - { key: INDEX, value: NIFTY }
+      - { key: CHAIN_STRIKES, value: "20" }
